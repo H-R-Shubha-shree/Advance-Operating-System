@@ -1,0 +1,19 @@
+proj1 = gcc
+LIBS = -lpthread
+all: et ep para_mm
+et: et.o etime.o
+	$( proj1) -o et et.o etime.o $(LIBS)
+ep: ep.o etime.o
+	$( proj1) -o ep ep.o etime.o $(LIBS)
+para_mm: para_mm.o etime.o
+	$( proj1) -o para_mm para_mm.o etime.o $(LIBS)
+et.o: et.c 
+	$( proj1) -c et.c 
+ep.o: ep.c 
+	$( proj1) -c ep.c 
+para_mm.o: para_mm.c 
+	$( proj1) -c para_mm.c 
+etime.o: etime.c 
+	$( proj1) -c etime.c 
+clean:
+	rm *.o et ep para_mm
